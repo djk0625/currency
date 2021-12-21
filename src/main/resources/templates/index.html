@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default">
+
+<th:block layout:fragment="css"/>
+</th:block>
+<th:block layout:fragment="script"/>
+</th:script>
+<div layout:fragment="content">
+    <div class="container" style="padding-top: 10%;font-size: 27px;">
+
+        <div class="col" style="padding-bottom : 3%;" >
+            <h1 style="border-bottom: 1px solid black">환율 계산</h1>
+        </div>
+
+
+        <div class="col-md-6" >
+
+            <div><label>송금국가 :</label> <span>미국(USD)</span></div>
+            <div><label>수취국가 :</label>
+                <select name="receive_country" class="custom-select col-sm-6" id="country" onchange = "getExchangeRate()">
+                    <option selected value="dft">국가 선택</option>
+                    <option value="KRW">한국(KRW)</option>
+                    <option value="JPY">일본(JPY)</option>
+                    <option value="PHP">필리핀(PHP)</option>
+                </select>
+            </div>
+            <div><label>환율 :</label> <span id="exchangeRate"></span> </div>
+            <div><label>송금액 :</label><span><input type="number" id="amount"></span>USD</div>
+            <div style="text-align : left"><button type="button" class="btn btn-primary btn-sm " onclick="getAmount()" >Submit</button></div>
+
+        </div>
+
+        <div id="receiveResult" class="col"  style=" margin-top : 3%">
+        </div>
+    </div>
+</div>
+</html>
